@@ -96,7 +96,7 @@ async def send_discord_webhook(url, user_data, config, app_name, ip_address):
         "title": "Login Authenticated",
         "color": 65280,
         "fields": fields,
-        "footer": {"text": "Lynx Auth System"},
+        "footer": {"text": "Auth-FUSION"},
         "timestamp": datetime.utcnow().isoformat()
     }
 
@@ -480,6 +480,7 @@ def user_action(data: UserUpdateAction):
 @app.api_route("/", methods=["GET", "HEAD"])
 def health_check():
     return {"status": "active", "timestamp": datetime.utcnow().isoformat()}
+
 
 
 
