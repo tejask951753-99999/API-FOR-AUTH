@@ -23,7 +23,7 @@ async def send_discord_webhook(url, user_data, config, app_name, ip_address):
         "title": "Login Authenticated",
         "color": 65280,
         "fields": fields,
-        "footer": {"text": "Lynx Auth System"},
+        "footer": {"text": "NXR Auth System"},
         "timestamp": datetime.utcnow().isoformat()
     }
 
