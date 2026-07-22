@@ -48,9 +48,9 @@ try:
         with open("../admin_Secret.txt", "r") as f:
             ADMIN_SECRET = f.read().strip()
     else:
-        ADMIN_SECRET = "lynx_admin_secret"
+        ADMIN_SECRET = "nxr_admin_secret"
 except Exception:
-    ADMIN_SECRET = "lynx_admin_secret"
+    ADMIN_SECRET = "nxr_admin_secret"
 
 
 
@@ -86,7 +86,7 @@ def verify_admin(data: AdminVerifyRequest):
     if data.secret_key != ADMIN_SECRET:
         raise HTTPException(status_code=403, detail="Unauthorized")
     if data.email:
-        if data.email != "lynxmodz99@gmail.com":
+        if data.email != "nxrcheats@gmail.com":
             admin_doc = db.collection('admin_users').document(data.email).get()
             if not admin_doc.exists:
                 raise HTTPException(status_code=403, detail="Email not authorized for admin access")
@@ -207,7 +207,7 @@ def list_codes(data: AdminCodesRequest):
 def generate_code(data: AdminCodeGenerateRequest):
     if data.secret_key != ADMIN_SECRET:
         raise HTTPException(status_code=403, detail="Unauthorized")
-    prefix = data.prefix.upper() if data.prefix else "LYNX"
+    prefix = data.prefix.upper() if data.prefix else "NXR"
     code_str = f"{prefix}-" + "-".join("".join(secrets.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") for _ in range(4)) for _ in range(3))
     db.collection('gift_codes').add({
         "code": code_str,
