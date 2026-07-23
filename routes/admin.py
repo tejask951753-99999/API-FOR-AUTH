@@ -86,7 +86,7 @@ def verify_admin(data: AdminVerifyRequest):
     if data.secret_key != ADMIN_SECRET:
         raise HTTPException(status_code=403, detail="Unauthorized")
     if data.email:
-        if data.email != "nxrcheats@gmail.com":
+        if data.email != "mxa@gmail.com":
             admin_doc = db.collection('admin_users').document(data.email).get()
             if not admin_doc.exists:
                 raise HTTPException(status_code=403, detail="Email not authorized for admin access")
